@@ -58,6 +58,7 @@ public class TestVagrantTempCheckTest extends TestBase
 		Assert.assertEquals(response.getStatusCode(), 200);
 		String tempFromAPI = path.getString("main.temp");
 
+		logger.info("Temperature's from API side "+tempFromAPI +" degree");
 		tempCollectorObject = new TempCollectorObject(driver);
 
 		String tempfromWeb = tempCollectorObject.getTempFromUI();

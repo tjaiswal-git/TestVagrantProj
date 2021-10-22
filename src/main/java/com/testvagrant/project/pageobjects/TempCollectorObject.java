@@ -82,7 +82,9 @@ public class TempCollectorObject extends TestBase
     public boolean tempCompare(String tempAPI,String tempWeb) {
         boolean tempStatus = false;
         int specifiedTempRange = 50;
-        if ((Double.parseDouble(tempAPI) - Double.parseDouble(tempWeb)) <= specifiedTempRange)
+        int actualTemp = (int) (Double.parseDouble(tempAPI) - Double.parseDouble(tempWeb));
+        logger.info("Difference between 2 sources temperature's range is "+actualTemp +" degree");
+        if (( actualTemp <= specifiedTempRange))
         {
             tempStatus = true;
         }

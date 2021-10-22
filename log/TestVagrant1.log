@@ -281,3 +281,17 @@
 2021-10-22 21:38:18,769 [main] INFO com.testvagrant.project.utils.TestBase - Now Browser is maximize...
 2021-10-22 21:38:18,786 [main] INFO com.testvagrant.project.utils.TestBase - Page loading.....
 2021-10-22 21:38:18,858 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-22 21:38:21,363 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-22 21:38:21,497 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-22 21:38:36,318 [main] INFO com.testvagrant.project.pageobjects.TempCollectorObject - stale element reference exception came times 0
+2021-10-22 21:38:44,458 [main] INFO com.testvagrant.project.pageobjects.TempCollectorObject - temperature from web app is 23 Degree
+2021-10-22 21:42:22,162 [main] INFO com.testvagrant.project.utils.TestBase - url has lauching..
+2021-10-22 21:42:22,331 [main] INFO com.testvagrant.project.utils.TestBase - Now Browser is maximize...
+2021-10-22 21:42:22,346 [main] INFO com.testvagrant.project.utils.TestBase - Page loading.....
+2021-10-22 21:42:22,407 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-22 21:42:24,595 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-22 21:42:24,669 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-22 21:42:29,891 [main] INFO com.testvagrant.project.utils.TestBase - Temperature's from API side 295.48 degree
+2021-10-22 21:42:32,822 [main] INFO com.testvagrant.project.pageobjects.TempCollectorObject - stale element reference exception came times 0
+2021-10-22 21:42:39,837 [main] INFO com.testvagrant.project.pageobjects.TempCollectorObject - temperature from web app is 23 Degree
+2021-10-22 21:42:39,838 [main] INFO com.testvagrant.project.pageobjects.TempCollectorObject - Difference between 2 sources temperature's range is 272 degree
