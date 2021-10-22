@@ -1,0 +1,1 @@
+{"uuid":"b7102f8e-f0cc-4ab4-a307-acd938e4ad6f","name":"TestVagrantProject","children":["11dfa177-211b-45c8-88ee-c50098aabc50"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1634906268853,"stop":1634906284681}],"afters":[],"links":[],"start":1634906268782,"stop":1634906296220}
