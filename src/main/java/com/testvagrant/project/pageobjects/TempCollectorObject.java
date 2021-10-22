@@ -3,9 +3,7 @@ package com.testvagrant.project.pageobjects;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +16,7 @@ public class TempCollectorObject extends TestBase
 
     public static final Logger logger = Logger.getLogger(TempCollectorObject.class
             .getName());
+    private static final String ARGUMENTS_0_CLICK = "arguments[0].click()";
 
     public TempCollectorObject(WebDriver driver)
     {
@@ -52,10 +51,21 @@ public class TempCollectorObject extends TestBase
             searchLocation.sendKeys("Bhilwara");
             searchLocation.sendKeys(Keys.ENTER);
 
-            wait.until(ExpectedConditions.visibilityOf(stCityElement));
-            stCityElement.click();
+            int attampt = 0;
+            while (attampt<4) {
+                try {
+                    System.out.println("clicked "+attampt);
+                    wait.until(ExpectedConditions.visibilityOf(stCityElement));
+                    JavascriptExecutor jse = (JavascriptExecutor)driver;
+                    jse.executeScript(ARGUMENTS_0_CLICK, stCityElement);
+                    break;
+                } catch (StaleElementReferenceException | NoSuchElementException e) {
+                    logger.info("stale element reference exception came times " + attampt);
+                }
+                attampt++;
+            }
 
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             driver.navigate().back();
             driver.navigate().forward();
             finalTemp = extractTempFromWebPage();
@@ -94,6 +104,7 @@ public class TempCollectorObject extends TestBase
                 finalDigit += allchars[i];
             }
         }
+        logger.info("temperature from web app is "+finalDigit +" Degree");
         return finalDigit;
     }
 

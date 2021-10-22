@@ -41,7 +41,7 @@ public class TestVagrantTempCheckTest extends TestBase
 	@Owner("Promode")
 	@Severity(SeverityLevel.NORMAL)
 	@Description("Verify that Status code is 200 when we get GitHub RequestPayloads of User")
-	public void testGetRepoOfUser() throws TempNotInRangeException
+	public void testTempFromTwoSources() throws TempNotInRangeException
 	{
 
 		Response response = given().
@@ -66,11 +66,11 @@ public class TestVagrantTempCheckTest extends TestBase
 
 		if(!tempStatus)
 		{
-			throw new TempNotInRangeException("From two sources the temprature are not in specified range");
+			throw new TempNotInRangeException("From two sources the temperature's are not in specified range");
 		}
 		else
 		{
-			Assert.assertTrue(tempStatus);
+			Assert.assertTrue(tempStatus,"Temperature's is specified range");
 		}
 	}
 

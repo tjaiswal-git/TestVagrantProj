@@ -3,6 +3,8 @@ package com.testvagrant.project.utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -90,19 +92,10 @@ public class TestBase
         }
         else if(browser.equalsIgnoreCase("chrome"))
         {
-            //Map<String, Object> prefs = new HashMap<String, Object>();
-
-            //add key and value to map as follow to switch off browser notification
-            //Pass the argument 1 to allow and 2 to block
-            //prefs.put("profile.default_content_setting_values.notifications", 2);
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-notifications");
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(options);
-
-
-            // set ExperimentalOption - prefs
-            //options.setExperimentalOption("prefs", prefs);
             logger.info("chrome browser has launching..");
 
         }
