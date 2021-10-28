@@ -52,15 +52,17 @@ public class TempCollectorObject extends TestBase
             searchLocation.sendKeys("Bhilwara");
             searchLocation.sendKeys(Keys.ENTER);
 
-            int attampt = 0;
+            int attampt = 1;
             while (attampt<4) {
-                try {
-                    System.out.println("clicked "+attampt);
+                try 
+                {
                     wait.until(ExpectedConditions.visibilityOf(stCityElement));
                     JavascriptExecutor jse = (JavascriptExecutor)driver;
                     jse.executeScript(ARGUMENTS_0_CLICK, stCityElement);
                     break;
-                } catch (StaleElementReferenceException | NoSuchElementException e) {
+                } 
+                catch (StaleElementReferenceException | NoSuchElementException e) 
+                {
                     logger.info("stale element reference exception came times " + attampt);
                 }
                 attampt++;
@@ -95,8 +97,6 @@ public class TempCollectorObject extends TestBase
     private String extractTempFromWebPage()
     {
         String temp = tempElement.getText();
-        System.out.println(temp);
-
         char[] allchars = temp.toCharArray();
         String finalDigit = "";
         for(int chindex = 0; chindex < allchars.length; chindex++)
