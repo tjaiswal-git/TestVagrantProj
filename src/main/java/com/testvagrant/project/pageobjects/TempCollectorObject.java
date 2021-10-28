@@ -2,6 +2,7 @@ package com.testvagrant.project.pageobjects;
 
 import java.util.concurrent.TimeUnit;
 
+import com.testvagrant.project.endpoints.APIConstants;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -81,10 +82,9 @@ public class TempCollectorObject extends TestBase
 
     public boolean tempCompare(String tempAPI,String tempWeb) {
         boolean tempStatus = false;
-        int specifiedTempRange = 50;
-        int actualTemp = (int) (Double.parseDouble(tempAPI) - Double.parseDouble(tempWeb));
-        logger.info("Difference between 2 sources temperature's range is "+actualTemp +" degree");
-        if (( actualTemp <= specifiedTempRange))
+        double actualTemp = Math.abs(Double.parseDouble(tempAPI)) - Math.abs(Double.parseDouble(tempWeb));
+        logger.info("Difference between 2 sources temperature's range is "+actualTemp +" Degree Celsius");
+        if (( actualTemp <= Math.abs(Double.parseDouble(APIConstants.TEMP_VARIANCE))))
         {
             tempStatus = true;
         }
@@ -99,14 +99,13 @@ public class TempCollectorObject extends TestBase
 
         char[] allchars = temp.toCharArray();
         String finalDigit = "";
-        for(int i = 0; i < allchars.length; i++)
+        for(int chindex = 0; chindex < allchars.length; chindex++)
         {
-            if(Character.isDigit(allchars[i]))
+            if(Character.isDigit(allchars[chindex]))
             {
-                finalDigit += allchars[i];
+                finalDigit += allchars[chindex];
             }
         }
-        logger.info("temperature from web app is "+finalDigit +" Degree");
         return finalDigit;
     }
 

@@ -4,6 +4,8 @@ import static io.restassured.RestAssured.given;
 
 import java.util.Properties;
 
+import com.testvagrant.project.apiobjects.TempDataFromApi;
+import com.testvagrant.project.utils.ConversionUtil;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -26,7 +28,7 @@ import io.restassured.response.Response;
 public class TestVagrantTempCheckTest extends TestBase
 {
 
-	private static Logger Log = Logger.getLogger(TestVagrantTempCheckTest.class.getName());
+	private static Logger Logger = org.apache.log4j.Logger.getLogger(TestVagrantTempCheckTest.class.getName());
 	TempCollectorObject tempCollectorObject;
 
 	@BeforeTest
@@ -40,28 +42,19 @@ public class TestVagrantTempCheckTest extends TestBase
 	@Test()
 	@Owner("Promode")
 	@Severity(SeverityLevel.NORMAL)
-	@Description("Verify that Status code is 200 when we get GitHub RequestPayloads of User")
+	@Description("Verify the temperature from two source")
 	public void testTempFromTwoSources() throws TempNotInRangeException
 	{
 
-		Response response = given().
-				queryParam(APIConstants.ZIP, APIConstants.ZIP_VALUE).
-				queryParam(APIConstants.APP_ID, APIConstants.token).
-				when().
-				get(APIConstants.getWeather).
-				then().
-				extract().
-				response();
+		//api class object
+		TempDataFromApi tempDataFromApi = new TempDataFromApi();
+		String tempFromAPI = ConversionUtil.degreeToCelsius(tempDataFromApi.getTempFromAPISide());
+		logger.info("Temperature's from API side "+ tempFromAPI +" Degree Celsius");
 
-		JsonToString jsonToString = new JsonToString();
-		JsonPath path = jsonToString.rawJSON(response);
-		Assert.assertEquals(response.getStatusCode(), 200);
-		String tempFromAPI = path.getString("main.temp");
-
-		logger.info("Temperature's from API side "+tempFromAPI +" degree");
+		//ui class object
 		tempCollectorObject = new TempCollectorObject(driver);
-
 		String tempfromWeb = tempCollectorObject.getTempFromUI();
+		logger.info("temperature's from web app is "+tempfromWeb +" Degree Celsius");
 
 		boolean tempStatus = tempCollectorObject.tempCompare(tempFromAPI, tempfromWeb);
 
@@ -71,7 +64,7 @@ public class TestVagrantTempCheckTest extends TestBase
 		}
 		else
 		{
-			Assert.assertTrue(tempStatus,"Temperature's is specified range");
+			Assert.assertTrue(true,"Temperature's is in specified range");
 		}
 	}
 

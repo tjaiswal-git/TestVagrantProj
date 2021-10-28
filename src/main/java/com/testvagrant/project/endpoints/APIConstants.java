@@ -10,4 +10,5 @@ public class APIConstants
 	public final static String ZIP = "zip";
 	public final static String APP_ID = "appid";
 	public final static String ZIP_VALUE = DataUtils.getTestData("TestData",ZIP,"Value");
+	public final static  String TEMP_VARIANCE = DataUtils.getTestData("TestData","TempVariance","Value");
 }
