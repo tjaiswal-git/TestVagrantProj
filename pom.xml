@@ -4,13 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.testingsumo</groupId>
-    <artifactId>TSAPIAutomation</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>com.testvagrant</groupId>
+    <artifactId>TestVagrantAutomation</artifactId>
+    <version>1.2.0</version>
 
-    <name>TSAPIAutomation</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <name>TestVagrantAutomation</name>
 
     <properties>
         <aspectj.version>1.8.10</aspectj.version>
@@ -33,14 +31,6 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.8.1</version>
-            <scope>test</scope>
-        </dependency>
-
 
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -70,8 +60,8 @@
                     <groupId>org.seleniumhq.selenium</groupId>
                     <artifactId>selenium-safari-driver</artifactId>
                 </exclusion>
-
             </exclusions>
+
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -97,6 +87,7 @@
             <artifactId>allure-testng</artifactId>
             <version>2.12.0</version>
         </dependency>
+
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
