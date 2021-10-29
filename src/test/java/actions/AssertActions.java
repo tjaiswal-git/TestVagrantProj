@@ -1,6 +1,7 @@
 package actions;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import io.restassured.response.Response;
 
@@ -40,7 +41,11 @@ public class AssertActions
 	public void verifyResponseBody(boolean actual, boolean expected, String description)
 	{
 		assertEquals(actual, expected, description);
+	}
 
+	public void verifyResponseBody(boolean actual,String description)
+	{
+		assertTrue(actual,description);
 	}
 
 }
