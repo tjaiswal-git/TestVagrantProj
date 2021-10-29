@@ -52,26 +52,28 @@ public class TempCollectorObject extends TestBase
             searchLocation.sendKeys("Bhilwara");
             searchLocation.sendKeys(Keys.ENTER);
 
-            int attampt = 1;
-            while (attampt<4) {
-                try 
-                {
-                    wait.until(ExpectedConditions.visibilityOf(stCityElement));
-                    JavascriptExecutor jse = (JavascriptExecutor)driver;
-                    jse.executeScript(ARGUMENTS_0_CLICK, stCityElement);
-                    break;
-                } 
-                catch (StaleElementReferenceException | NoSuchElementException e) 
-                {
-                    logger.info("stale element reference exception came times " + attampt);
-                }
-                attampt++;
-            }
+            getCityTemp();
 
             Thread.sleep(5000);
             driver.navigate().back();
             driver.navigate().forward();
-            finalTemp = extractTempFromWebPage();
+            int attampt = 1;
+            while (attampt < 4)
+            {
+                try
+                {
+                    finalTemp = wait.until(ExpectedConditions.visibilityOf(tempElement)).getText();
+                    finalTemp = tempRegex(finalTemp);
+                    attampt++;
+                    break;
+                }
+               catch (Exception e)
+               {
+                   getCityTemp();
+                   e.printStackTrace();
+               }
+            }
+
 
         }
         catch(Exception e)
@@ -80,6 +82,25 @@ public class TempCollectorObject extends TestBase
         }
 
         return finalTemp;
+    }
+
+    private void getCityTemp() {
+        int attampt = 1;
+        while (attampt<4) {
+            try
+            {
+                WebDriverWait wait = new WebDriverWait(driver, 60);
+                wait.until(ExpectedConditions.visibilityOf(stCityElement));
+                JavascriptExecutor jse = (JavascriptExecutor)driver;
+                jse.executeScript(ARGUMENTS_0_CLICK, stCityElement);
+                break;
+            }
+            catch (StaleElementReferenceException | NoSuchElementException e)
+            {
+                logger.info("stale element reference exception came times " + attampt);
+            }
+            attampt++;
+        }
     }
 
     public boolean tempCompare(String tempAPI,String tempWeb) {
@@ -94,9 +115,13 @@ public class TempCollectorObject extends TestBase
         return tempStatus;
 
     }
-    private String extractTempFromWebPage()
+    private String tempRegex(String temp)
     {
-        String temp = tempElement.getText();
+        System.out.println(temp);
+        if(temp == null || temp.equals(""))
+        {
+            getCityTemp();
+        }
         char[] allchars = temp.toCharArray();
         String finalDigit = "";
         for(int chindex = 0; chindex < allchars.length; chindex++)

@@ -72,7 +72,7 @@ public class TestVagrantTempCheckTest extends TestBase
 	@AfterTest
 	public void tearDown()
 	{
-		quitDriver();
+		 quitDriver();
 	}
 
 }
