@@ -468,3 +468,23 @@
 2021-10-29 22:05:45,656 [main] INFO com.testvagrant.project.utils.TestBase - Temperature's from API side 145 Degree Celsius
 2021-10-29 22:05:57,157 [main] INFO com.testvagrant.project.utils.TestBase - temperature's from web app is 20 Degree Celsius
 2021-10-29 22:05:57,158 [main] INFO com.testvagrant.project.pageobjects.TempCollectorObject - Difference between 2 sources temperature's range is 125.0 Degree Celsius
+2021-10-31 09:47:20,776 [main] INFO com.testvagrant.project.utils.TestBase - url has lauching..
+2021-10-31 09:47:24,175 [main] INFO com.testvagrant.project.utils.TestBase - Now Browser is maximize...
+2021-10-31 09:47:24,187 [main] INFO com.testvagrant.project.utils.TestBase - Page loading.....
+2021-10-31 09:47:26,080 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-31 09:47:30,658 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-31 09:47:30,815 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-31 09:47:30,941 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-31 09:47:40,039 [main] INFO com.testvagrant.project.utils.TestBase - Temperature's from API side 147 Degree Celsius
+2021-10-31 09:48:57,909 [main] INFO com.testvagrant.project.utils.TestBase - temperature's from web app is 24 Degree Celsius
+2021-10-31 09:48:57,911 [main] INFO com.testvagrant.project.pageobjects.TempCollectorObject - Difference between 2 sources temperature's range is 123.0 Degree Celsius
+2021-10-31 15:11:49,169 [main] INFO com.testvagrant.project.utils.TestBase - url has lauching..
+2021-10-31 15:11:49,318 [main] INFO com.testvagrant.project.utils.TestBase - Now Browser is maximize...
+2021-10-31 15:11:49,331 [main] INFO com.testvagrant.project.utils.TestBase - Page loading.....
+2021-10-31 15:11:49,385 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-31 15:11:51,036 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-31 15:11:51,083 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-31 15:11:51,161 [main] INFO com.testvagrant.project.utils.DataUtils - fillo filepath is:D:\TestVagrantProject/resources/TestData.xlsx
+2021-10-31 15:11:55,933 [main] INFO com.testvagrant.project.utils.TestBase - Temperature's from API side 150 Degree Celsius
+2021-10-31 15:12:06,906 [main] INFO com.testvagrant.project.utils.TestBase - temperature's from web app is 33 Degree Celsius
+2021-10-31 15:12:06,906 [main] INFO com.testvagrant.project.pageobjects.TempCollectorObject - Difference between 2 sources temperature's range is 117.0 Degree Celsius

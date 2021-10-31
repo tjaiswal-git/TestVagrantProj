@@ -1,16 +1,13 @@
 package com.testvagrant.project.pageobjects;
 
-import java.util.concurrent.TimeUnit;
-
 import com.testvagrant.project.endpoints.APIConstants;
+import com.testvagrant.project.utils.TestBase;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.testvagrant.project.utils.TestBase;
+import java.util.concurrent.TimeUnit;
 
 public class TempCollectorObject extends TestBase
 {
@@ -45,8 +42,7 @@ public class TempCollectorObject extends TestBase
         try
         {
             driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-            WebDriverWait wait = new WebDriverWait(driver, 60);
-            wait.until(ExpectedConditions.visibilityOf(accpetedBtn));
+            waitforElement(60,accpetedBtn);
             accpetedBtn.click();
             searchLocation.clear();
             searchLocation.sendKeys("Bhilwara");
@@ -57,14 +53,15 @@ public class TempCollectorObject extends TestBase
             Thread.sleep(5000);
             driver.navigate().back();
             driver.navigate().forward();
-            int attampt = 1;
-            while (attampt < 4)
+            int attempt = 1;
+            while (attempt < 4)
             {
                 try
                 {
-                    finalTemp = wait.until(ExpectedConditions.visibilityOf(tempElement)).getText();
+                    waitforElement(60,tempElement);
+                    finalTemp = tempElement.getText();
                     finalTemp = tempRegex(finalTemp);
-                    attampt++;
+                    attempt++;
                     break;
                 }
                catch (Exception e)
@@ -89,8 +86,7 @@ public class TempCollectorObject extends TestBase
         while (attampt<4) {
             try
             {
-                WebDriverWait wait = new WebDriverWait(driver, 60);
-                wait.until(ExpectedConditions.visibilityOf(stCityElement));
+                waitforElement(60,stCityElement);
                 JavascriptExecutor jse = (JavascriptExecutor)driver;
                 jse.executeScript(ARGUMENTS_0_CLICK, stCityElement);
                 break;

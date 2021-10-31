@@ -49,7 +49,6 @@ public class TestBase
     public void init(String URL)
     {
         selectBrowser(browser);
-
         PropertyConfigurator.configure(System.getProperty("user.dir") + "//Configuration//loggingstatus.properties");
         getURL(URL);
     }
@@ -57,7 +56,6 @@ public class TestBase
 
     public Properties getProp()
     {
-        //String path1 = System.getProperty("");
         File file = new File(System.getProperty("user.dir") + "//Configuration//projectconfig.properties");
         FileInputStream fileInputStream = null;
         try

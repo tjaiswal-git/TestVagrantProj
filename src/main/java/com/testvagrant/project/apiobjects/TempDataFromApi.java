@@ -18,11 +18,6 @@ public class TempDataFromApi
                 then().
                 extract().
                 response();
-
-//        JsonToString jsonToString = new JsonToString();
-//        JsonPath path = jsonToString.rawJSON(response);
-//        Assert.assertEquals(response.getStatusCode(), 200);
-//        String tempFromAPI = path.getString("main.temp");
         return response;
     }
 
