@@ -7,8 +7,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.concurrent.TimeUnit;
-
 public class TempCollectorObject extends TestBase
 {
 
@@ -41,7 +39,7 @@ public class TempCollectorObject extends TestBase
         String finalTemp = "";
         try
         {
-            driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+            ownImplicitWait(60);
             waitforElement(60,accpetedBtn);
             accpetedBtn.click();
             searchLocation.clear();
@@ -50,7 +48,7 @@ public class TempCollectorObject extends TestBase
 
             getCityTemp();
 
-            Thread.sleep(5000);
+            sleepTime(5);
             driver.navigate().back();
             driver.navigate().forward();
             int attempt = 1;
