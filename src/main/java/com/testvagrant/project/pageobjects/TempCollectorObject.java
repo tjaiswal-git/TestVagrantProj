@@ -25,7 +25,7 @@ public class TempCollectorObject extends TestBase
     @FindBy(xpath = "//div[@class='banner-button policy-accept']")
     WebElement accpetedBtn;
 
-    @FindBy(xpath = "//div[@class='content-module']//a[1]")
+    @FindBy(xpath = "//span[normalize-space()='(190211)']")
     WebElement stCityElement;
 
     @FindBy(xpath = "//div[@id='dismiss-button']")
@@ -56,14 +56,15 @@ public class TempCollectorObject extends TestBase
             {
                 try
                 {
-                    waitforElement(60,tempElement);
+                    waitforElement(4,tempElement);
                     finalTemp = tempElement.getText();
                     finalTemp = tempRegex(finalTemp);
                     attempt++;
                     break;
                 }
-               catch (Exception e)
+               catch (TimeoutException e)
                {
+                   System.out.println("timeout aa gya bhai");
                    getCityTemp();
                    e.printStackTrace();
                }
@@ -87,6 +88,8 @@ public class TempCollectorObject extends TestBase
                 waitforElement(60,stCityElement);
                 JavascriptExecutor jse = (JavascriptExecutor)driver;
                 jse.executeScript(ARGUMENTS_0_CLICK, stCityElement);
+                driver.navigate().back();
+                driver.navigate().forward();
                 break;
             }
             catch (StaleElementReferenceException | NoSuchElementException e)
